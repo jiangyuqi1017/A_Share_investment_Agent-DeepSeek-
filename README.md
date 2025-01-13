@@ -626,5 +626,4 @@ ai-hedge-fund/
 | -1.0 | 极其消极 | 重大违规、核心业务严重亏损、被监管处罚 |
 
 #### 结果展示
-![情感分析结果示例](https://github.com/user-attachments/assets/c281b8c3-d8e6-431e-a05e-d309d306e967)
-
+![alt text](image.png)
