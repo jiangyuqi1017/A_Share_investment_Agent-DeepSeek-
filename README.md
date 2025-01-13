@@ -288,7 +288,7 @@ ai-hedge-fund/
 
 ## 致谢
 
-本项目修改自 [ai-hedge-fund](https://github.com/virattt/ai-hedge-fund.git)[24mlight](https://github.com/24mlight/A_Share_investment_Agent.git)。我们衷心感谢原作者的出色工作和启发。原项目为我们针对 A 股市场的适配和改进提供了坚实的基础。
+本项目修改自 [ai-hedge-fund](https://github.com/virattt/ai-hedge-fund.git)、[24mlight](https://github.com/24mlight/A_Share_investment_Agent.git)。我们衷心感谢原作者的出色工作和启发。原项目为我们针对 A 股市场的适配和改进提供了坚实的基础。
 
 ## 项目详细说明
 
