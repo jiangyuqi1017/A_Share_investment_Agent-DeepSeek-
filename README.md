@@ -1,17 +1,18 @@
 # AI 投资系统
-这个系统目前是只支持A股的哈。
 
 这是一个基于人工智能的投资系统概念验证项目。项目目标是探索如何使用 AI 来辅助投资决策。本项目仅用于**教育目的**，不适用于实际交易或投资。
 
+## 系统组成
+
 系统由以下几个协同工作的 agent 组成：
 
-1. Market Data Analyst - 负责收集和预处理市场数据
-2. Valuation Agent - 计算股票内在价值并生成交易信号
-3. Sentiment Agent - 分析市场情绪并生成交易信号
-4. Fundamentals Agent - 分析基本面数据并生成交易信号
-5. Technical Analyst - 分析技术指标并生成交易信号
-6. Risk Manager - 计算风险指标并设置仓位限制
-7. Portfolio Manager - 制定最终交易决策并生成订单
+- **Market Data Analyst**：负责收集和预处理市场数据
+- **Valuation Agent**：计算股票内在价值并生成交易信号  
+- **Sentiment Agent**：分析市场情绪并生成交易信号
+- **Fundamentals Agent**：分析基本面数据并生成交易信号
+- **Technical Analyst**：分析技术指标并生成交易信号
+- **Risk Manager**：计算风险指标并设置仓位限制
+- **Portfolio Manager**：制定最终交易决策并生成订单
 
 ![Screenshot 2024-12-27 at 5 49 56 PM](https://github.com/user-attachments/assets/c281b8c3-d8e6-431e-a05e-d309d306e967)
 
@@ -29,44 +30,44 @@
 
 使用本软件即表示您同意仅将其用于学习目的。
 
-## Table of Contents
+## 目录
 
-- [Setup](#setup)
-- [Usage](#usage)
-  - [Running the Hedge Fund](#running-the-hedge-fund)
-  - [Running the Backtester](#running-the-backtester)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [安装](#安装)
+- [使用](#使用)
+  - [运行对冲基金](#运行对冲基金)
+  - [运行回测](#运行回测)
+- [项目结构](#项目结构)
+- [贡献指南](#贡献指南)
+- [许可证](#许可证)
 
-## Setup
+## 安装
 
-Clone the repository:
+1. 克隆仓库：
 
 ```bash
 git clone https://github.com/zivmryang/A_Share_investment_Agent-DeepSeek-.git
 cd A_Share_investent_Agent
 ```
 
-1. Install Poetry (if not already installed):
+2. 安装 Poetry（如果尚未安装）：
 
 ```bash
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
-2. Install dependencies:
+3. 安装依赖：
 
 ```bash
 poetry install
 ```
 
-3. Set up your environment variables:
+4. 设置环境变量：
 
 ```bash
-# Create .env file for your API keys
+# 创建.env文件用于存储API密钥
 cp .env.example .env
 
-# Get your DeepSeek API key from https://platform.deepseek.com/
+# 从 https://platform.deepseek.com/ 获取DeepSeek API密钥
 export DEEP_SEEK_API_KEY='your-deepseek-api-key-here'
 export DEEP_SEEK_MODEL='deepseek-chat'
 ```
@@ -80,9 +81,9 @@ export DEEP_SEEK_MODEL='deepseek-chat'
 5. 复制生成的 API key
 6. 将 API key 填入 .env 文件中的 DEEP_SEEK_API_KEY 变量
 
-## Usage
+## 使用说明
 
-### Running the Hedge Fund
+### 运行对冲基金
 
 系统支持多种运行方式，可以根据需要组合使用不同的参数：
 
@@ -110,7 +111,7 @@ poetry run python src/main.py --ticker 301155 --show-reasoning
 
 - initial_capital: 初始现金金额（可选，默认为 100,000）
 
-4. **自定义新闻分析数量和具体日期的投资建议**
+3. **自定义新闻分析数量和具体日期的投资建议**
 
 ```bash
 poetry run python src/main.py --ticker 301157 --show-reasoning --end-date 2024-12-11 --num-of-news 20
@@ -121,7 +122,7 @@ poetry run python src/main.py --ticker 301157 --show-reasoning --end-date 2024-1
 - 分析指定日期范围内最近的 20 条新闻进行情绪分析
 - start-date 和 end-date 格式为 YYYY-MM-DD
 
-5. **回测功能**
+4. **回测功能**
 
 ```bash
 poetry run python src/backtester.py --ticker 301157 --start-date 2024-12-11 --end-date 2025-01-07 --num-of-news 20
@@ -238,20 +239,20 @@ Final Result:
 
 所有日期格式均为 YYYY-MM-DD。如果使用了 `--show-reasoning` 参数，详细的分析过程也会记录在日志文件中。
 
-## Project Structure
+## 项目结构
 
 ```
 ai-hedge-fund/
 ├── src/                         # 源代码目录
 │   ├── agents/                  # agent定义和工作流
-│   │   ├── fundamentals.py      # Fundamentals Agent
-│   │   ├── market_data.py       # Market Data Agent
-│   │   ├── portfolio_manager.py # Portfolio Manager
-│   │   ├── risk_manager.py      # Risk Manager
-│   │   ├── sentiment.py         # Sentiment Agent
+│   │   ├── fundamentals.py      # 基本面分析Agent
+│   │   ├── market_data.py       # 市场数据分析Agent
+│   │   ├── portfolio_manager.py # 投资组合管理Agent
+│   │   ├── risk_manager.py      # 风险管理Agent
+│   │   ├── sentiment.py         # 情绪分析Agent
 │   │   ├── state.py            # Agent状态管理
-│   │   ├── technicals.py       # Technical Analyst
-│   │   └── valuation.py        # Valuation Agent
+│   │   ├── technicals.py       # 技术分析Agent
+│   │   └── valuation.py        # 估值分析Agent
 │   ├── data/                   # 数据存储目录
 │   │   ├── sentiment_cache.json # 情绪分析缓存
 │   │   └── stock_news/         # 股票新闻数据
@@ -276,81 +277,122 @@ ai-hedge-fund/
 
 ## 贡献指南
 
+欢迎贡献代码！请按照以下步骤进行：
+
 1. Fork 本仓库
-2. 创建特性分支
-3. 提交更改
-4. 推送到分支
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
 5. 创建 Pull Request
 
-## 许可证
+## 许可证信息
 
-本项目基于 MIT 许可证 - 详见 LICENSE 文件。
+本项目采用 MIT 开源许可证，具体条款请参阅项目根目录下的 LICENSE 文件。
 
-## 致谢
+主要条款包括：
+- 允许自由使用、复制、修改、合并、出版发行、散布、再授权及销售软件及其副本
+- 允许修改源代码，但必须在所有副本中包含版权声明和许可声明
+- 软件按"原样"提供，不提供任何形式的担保
 
-本项目修改自 [ai-hedge-fund](https://github.com/virattt/ai-hedge-fund.git)、[24mlight](https://github.com/24mlight/A_Share_investment_Agent.git)。我们衷心感谢原作者的出色工作和启发。原项目为我们针对 A 股市场的适配和改进提供了坚实的基础。
+## 致谢与参考项目
+
+本项目基于以下开源项目进行修改和扩展，特此致谢：
+
+1. [ai-hedge-fund](https://github.com/virattt/ai-hedge-fund.git)
+   - 提供了基础的AI投资系统框架
+   - 实现了核心的agent协作机制
+   - 包含完整的回测系统实现
+
+2. [24mlight/A_Share_investment_Agent](https://github.com/24mlight/A_Share_investment_Agent.git)
+   - 提供了A股市场适配方案
+   - 实现了akshare数据接口集成
+   - 包含中文文档和本地化支持
+
+我们衷心感谢原作者的出色工作和启发，这些项目为我们针对A股市场的适配和改进提供了坚实的基础。
 
 ## 项目详细说明
 
-### 架构设计
+### 系统架构设计
 
-本项目是一个基于多个 agent 的 AI 投资系统，采用模块化设计，每个 agent 都有其专门的职责。系统的架构如下：
+本项目采用模块化的多Agent架构，每个Agent都有明确的职责分工。系统架构图如下：
 
 ```
-Market Data Analyst → [Technical/Fundamentals/Sentiment/Valuation Analyst] → Risk Manager → Portfolio Manager → Trading Decision
+市场数据分析 → [技术/基本面/情绪/估值分析] → 风险管理 → 投资组合管理 → 交易决策
 ```
 
-#### Agent 角色和职责
+#### 各Agent功能说明
 
-1. **Market Data Analyst**
+1. **市场数据分析Agent**
 
-   - 作为系统的入口点
-   - 负责收集和预处理所有必要的市场数据
-   - 通过 akshare API 获取 A 股市场数据
-   - 数据来源：东方财富、新浪财经等
+   - 系统入口，负责数据采集和预处理
+   - 通过akshare API获取A股市场数据
+   - 数据来源包括：
+     - 东方财富
+     - 新浪财经
+     - 同花顺
 
-2. **Technical Analyst**
+2. **技术分析Agent**
 
-   - 分析价格趋势、成交量、动量等技术指标
-   - 生成基于技术分析的交易信号
-   - 关注短期市场走势和交易机会
+   - 分析以下技术指标：
+     - 价格趋势
+     - 成交量
+     - 动量指标
+   - 生成技术分析交易信号
+   - 关注短期市场走势
 
-3. **Fundamentals Analyst**
+3. **基本面分析Agent**
 
-   - 分析公司财务指标和经营状况
-   - 评估公司的长期发展潜力
-   - 生成基于基本面的交易信号
+   - 分析公司财务指标：
+     - 盈利能力
+     - 成长性
+     - 财务健康状况
+   - 评估公司长期发展潜力
+   - 生成基本面交易信号
 
-4. **Sentiment Analyst**
+4. **情绪分析Agent**
 
-   - 分析市场新闻和舆论数据
-   - 评估市场情绪和投资者行为
-   - 生成基于情绪的交易信号
+   - 分析市场新闻和舆论
+   - 评估市场情绪
+   - 生成情绪交易信号
+   - 支持多数据源：
+     - 新浪财经
+     - 东方财富
+     - 雪球
 
-5. **Valuation Analyst**
+5. **估值分析Agent**
 
    - 进行公司估值分析
-   - 评估股票的内在价值
-   - 生成基于估值的交易信号
+   - 评估股票内在价值
+   - 主要估值方法：
+     - DCF模型
+     - 相对估值法
+     - 市场比较法
 
-6. **Risk Manager**
+6. **风险管理Agent**
 
-   - 整合所有 agent 的交易信号
+   - 整合各Agent信号
    - 评估潜在风险
-   - 设定交易限制和风险控制参数
-   - 生成风险管理信号
+   - 设置风险控制参数：
+     - 最大持仓限制
+     - 止损止盈水平
+     - 交易规模限制
 
-7. **Portfolio Manager**
-   - 作为最终决策者
-   - 综合考虑所有信号和风险因素
-   - 做出最终的交易决策（买入/卖出/持有）
-   - 确保决策符合风险管理要求
+7. **投资组合管理Agent**
+   - 最终决策者
+   - 综合考虑：
+     - 各Agent信号
+     - 风险因素
+     - 投资组合状态
+   - 生成交易决策：
+     - 买入
+     - 卖出
+     - 持有
 
-### 数据流和处理
+### 数据处理流程
 
-#### 数据类型
+#### 数据类型说明
 
-1. **市场数据（Market Data）**
+1. **市场数据**
 
    ```python
    {
@@ -362,7 +404,7 @@ Market Data Analyst → [Technical/Fundamentals/Sentiment/Valuation Analyst] →
    }
    ```
 
-2. **财务指标数据（Financial Metrics）**
+2. **财务指标数据**
 
    ```python
    {
@@ -395,7 +437,7 @@ Market Data Analyst → [Technical/Fundamentals/Sentiment/Valuation Analyst] →
    }
    ```
 
-3. **财务报表数据（Financial Statements）**
+3. **财务报表数据**
 
    ```python
    {
@@ -409,17 +451,17 @@ Market Data Analyst → [Technical/Fundamentals/Sentiment/Valuation Analyst] →
    }
    ```
 
-4. **交易信号（Trading Signals）**
+4. **交易信号数据**
 
    ```python
    {
-       "action": str,               # "buy", "sell", "hold"
+       "action": str,               # 交易动作：买入/卖出/持有
        "quantity": int,             # 交易数量
        "confidence": float,         # 置信度 (0-1)
-       "agent_signals": [           # 各个 agent 的信号
+       "agent_signals": [           # 各Agent信号
            {
-               "agent": str,        # agent 名称
-               "signal": str,       # "bullish", "bearish", "neutral"
+               "agent": str,        # Agent名称
+               "signal": str,       # 信号类型：看涨/看跌/中性
                "confidence": float  # 置信度 (0-1)
            }
        ],
@@ -427,91 +469,190 @@ Market Data Analyst → [Technical/Fundamentals/Sentiment/Valuation Analyst] →
    }
    ```
 
-#### 数据流转过程
+#### 数据处理流程
 
-1. **数据采集阶段**
+1. **数据采集**
 
-   - Market Data Agent 通过 akshare API 获取实时市场数据：
-     - 股票实时行情（`stock_zh_a_spot_em`）
-     - 历史行情数据（`stock_zh_a_hist`）
-     - 财务指标数据（`stock_financial_analysis_indicator`）
-     - 财务报表数据（`stock_financial_report_sina`）
-   - 新闻数据通过新浪财经 API 获取
-   - 所有数据经过标准化处理和格式化
+   - 通过akshare API获取以下数据：
+     - 实时行情数据
+     - 历史行情数据
+     - 财务指标数据
+     - 财务报表数据
+   - 通过新浪财经API获取新闻数据
+   - 数据标准化处理
 
-2. **分析阶段**
+2. **数据分析**
 
-   - Technical Analyst：
-
-     - 计算技术指标（动量、趋势、波动率等）
-     - 分析价格模式和交易信号
-     - 生成技术分析评分和建议
-
-   - Fundamentals Analyst：
-
-     - 分析财务报表数据
-     - 评估公司基本面状况
-     - 生成基本面分析评分
-
-   - Sentiment Analyst：
-
-     - 分析最新的市场新闻
-     - 使用 AI 模型评估新闻情绪
-     - 生成市场情绪评分
-
-   - Valuation Analyst：
+   - 技术分析：
+     - 计算技术指标
+     - 分析价格模式
+     - 生成交易信号
+   - 基本面分析：
+     - 分析财务报表
+     - 评估公司基本面
+     - 生成交易信号
+   - 情绪分析：
+     - 分析市场新闻
+     - 评估市场情绪
+     - 生成交易信号
+   - 估值分析：
      - 计算估值指标
-     - 进行 DCF 估值分析
-     - 评估股票的内在价值
+     - 进行DCF估值
+     - 生成交易信号
 
-3. **风险评估阶段**
+3. **风险管理**
 
-   Risk Manager 综合考虑多个维度：
+   - 评估市场风险
+   - 计算头寸规模
+   - 设置止损止盈
+   - 控制投资组合风险
 
-   - 市场风险评估（波动率、Beta 等）
-   - 头寸规模限制计算
-   - 止损止盈水平设定
-   - 投资组合风险控制
+4. **投资决策**
 
-4. **决策阶段**
+   - 综合各Agent信号
+   - 评估市场状况
+   - 考虑投资组合状态
+   - 生成最终交易决策
 
-   Portfolio Manager 基于以下因素做出决策：
+5. **数据存储**
 
-   - 各 Agent 的信号强度和置信度
-   - 当前市场状况和风险水平
-   - 投资组合状态和现金水平
-   - 交易成本和流动性考虑
+   - 情绪分析结果缓存
+   - 新闻数据存储
+   - 日志文件记录
+   - API调用记录
 
-5. **数据存储和缓存**
+6. **系统监控**
 
-   - 情绪分析结果缓存在 `data/sentiment_cache.json`
-   - 新闻数据保存在 `data/stock_news/` 目录
-   - 日志文件按类型存储在 `logs/` 目录
-   - API 调用记录实时写入日志
+   - API调用监控
+   - Agent分析追踪
+   - 决策过程记录
+   - 回测结果评估
 
-6. **监控和反馈**
+### Agent协作机制
 
-   - 所有 API 调用都有详细的日志记录
-   - 每个 Agent 的分析过程可追踪
-   - 系统决策过程透明可查
-   - 回测结果提供性能评估
+#### 信息共享
 
-### 代理协作机制
+- 所有Agent共享同一个状态对象
+- 通过消息传递机制进行通信
+- 每个Agent都可以访问必要的历史数据
 
-1. **信息共享**
+#### 决策权重
 
-   - 所有代理共享同一个状态对象（AgentState）
-   - 通过消息传递机制进行通信
-   - 每个代理都可以访问必要的历史数据
+投资组合管理Agent在做决策时考虑不同信号的权重：
 
-2. **决策权重**
-   Portfolio Manager 在做决策时考虑不同信号的权重：
+- 估值分析：35%
+- 基本面分析：30% 
+- 技术分析：25%
+- 情绪分析：10%
 
-   - 估值分析：35%
-   - 基本面分析：30%
-   - 技术分析：25%
-   - 情绪分析：10%
+#### 风险控制
 
-3. **风险控制**
-   - 强制性风险限制
-   -
+- 强制性风险限制
+- 最大持仓限制
+- 交易规模限制
+- 止损和止盈设置
+
+#### 系统特点
+
+1. **模块化设计**
+   - 每个Agent都是独立的模块
+   - 易于维护和升级
+   - 可以单独测试和优化
+
+2. **可扩展性**
+   - 可以轻松添加新的分析师
+   - 支持添加新的数据源
+   - 可以扩展决策策略
+
+3. **风险管理**
+   - 多层次的风险控制
+   - 实时风险评估
+   - 自动止损机制
+
+4. **智能决策**
+   - 基于多维度分析
+   - 考虑多个市场因素
+   - 动态调整策略
+
+#### 未来展望
+
+1. **数据源扩展**
+   - 添加更多A股数据源
+   - 接入更多财经数据平台
+   - 增加社交媒体情绪数据
+   - 扩展到港股、美股市场
+
+2. **功能增强**
+   - 添加更多技术指标
+   - 实现自动化回测
+   - 支持多股票组合管理
+
+3. **性能优化**
+   - 提高数据处理效率
+   - 优化决策算法
+   - 增加并行处理能力
+### 情感分析功能
+
+情感分析代理（Sentiment Agent）是系统中的关键组件之一，负责分析市场新闻和舆论对股票的潜在影响。
+
+#### 功能特点
+
+1. **新闻数据采集**
+   - 自动抓取最新的股票相关新闻
+   - 支持多个新闻源
+   - 实时更新新闻数据
+
+2. **情感分析处理**
+   - 使用先进的AI模型分析新闻情感
+   - 情感分数范围：-1（极其消极）到1（极其积极）
+   - 考虑新闻的重要性和时效性
+
+3. **交易信号生成**
+   - 基于情感分析结果生成交易信号
+   - 包含信号类型（看涨/看跌）
+   - 提供置信度评估
+   - 附带详细的分析理由
+
+#### 情感分数说明
+
+| 分数范围 | 情感等级 | 典型场景 |
+|----------|----------|----------|
+| 1.0 | 极其积极 | 重大利好消息、超预期业绩、行业政策支持 |
+| 0.5 到 0.9 | 积极 | 业绩增长、新项目落地、获得订单 |
+| 0.1 到 0.4 | 轻微积极 | 小额合同签订、日常经营正常 |
+| 0.0 | 中性 | 日常公告、人事变动、无重大影响的新闻 |
+| -0.1 到 -0.4 | 轻微消极 | 小额诉讼、非核心业务亏损 |
+| -0.5 到 -0.9 | 消极 | 业绩下滑、重要客户流失、行业政策收紧 |
+| -1.0 | 极其消极 | 重大违规、核心业务严重亏损、被监管处罚 |
+
+#### 结果展示
+![情感分析结果示例](https://github.com/user-attachments/assets/c281b8c3-d8e6-431e-a05e-d309d306e967)
+
+### 项目信息
+
+#### 基本信息
+- **描述**: 无描述信息
+- **网站**: 无
+- **主题**: 无
+
+#### 资源
+- **文档**: README.md
+- **许可证**: MIT 许可证
+
+#### 项目活跃度
+- **星标**: 320
+- **关注者**: 6
+- **分支**: 95
+
+#### 发布信息
+- **版本发布**: 无
+- **软件包发布**: 无
+
+#### 语言分布
+| 语言 | 占比 |
+|------|------|
+| Python | 82.0% |
+| PowerShell | 12.5% |
+| Roff | 2.6% |
+| C | 2.3% |
+| Batchfile | 0.6% |
