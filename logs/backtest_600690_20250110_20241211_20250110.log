@@ -1,0 +1,259 @@
+回测开始时间: 2025-01-10 17:34:35
+股票代码: 600690
+回测区间: 2024-12-11 至 2025-01-10
+初始资金: 100,000.00
+
+----------------------------------------------------------------------------------------------------
+
+交易日期: 2024-12-11
+
+各智能体分析结果:
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Technical Analysis:
+- 信号: bullish, 置信度: 34%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Risk Management:
+- 信号: bearish, 置信度: 50%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-12
+
+各智能体分析结果:
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Technical Analysis:
+- 信号: bullish, 置信度: 35%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Risk Management:
+- 信号: bearish, 置信度: 50%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-13
+
+各智能体分析结果:
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Technical Analysis:
+- 信号: neutral, 置信度: 18%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Risk Management:
+- 信号: reduce, 置信度: 70%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-16
+
+各智能体分析结果:
+
+Technical Analysis:
+- 信号: neutral, 置信度: 0%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Risk Management:
+- 信号: reduce, 置信度: 70%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-17
+
+各智能体分析结果:
+
+Technical Analysis:
+- 信号: neutral, 置信度: 0%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Risk Management:
+- 信号: reduce, 置信度: 70%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-18
+
+各智能体分析结果:
+
+Technical Analysis:
+- 信号: neutral, 置信度: 0%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Risk Management:
+- 信号: reduce, 置信度: 70%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-19
+
+各智能体分析结果:
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Technical Analysis:
+- 信号: neutral, 置信度: 0%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Risk Management:
+- 信号: reduce, 置信度: 70%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-20
+
+各智能体分析结果:
+
+Technical Analysis:
+- 信号: neutral, 置信度: 50%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Risk Management:
+- 信号: reduce, 置信度: 70%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-23
+
+各智能体分析结果:
+
+Technical Analysis:
+- 信号: neutral, 置信度: 0%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Risk Management:
+- 信号: reduce, 置信度: 70%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-24
+
+各智能体分析结果:
+
+Technical Analysis:
+- 信号: neutral, 置信度: 50%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Risk Management:
+- 信号: reduce, 置信度: 70%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2024-12-25
+
+各智能体分析结果:
+
+Technical Analysis:
+- 信号: neutral, 置信度: 50%
+
+Fundamental Analysis:
+- 信号: bullish, 置信度: 50%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 21%
+
+Risk Management:
+- 信号: reduce, 置信度: 70%
+
+综合决策:
+行动: HOLD
+数量: 0

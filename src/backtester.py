@@ -93,7 +93,6 @@ class Backtester:
                 self.logger.info(f"已达到 API 限制，等待 {wait_time:.1f} 秒...")
                 time.sleep(wait_time)
                 self._api_call_count = 0
-                self._api_window_start = time.time()
 
         for attempt in range(max_retries):
             try:
@@ -120,19 +119,14 @@ class Backtester:
                 try:
                     # 尝试解析返回的字符串为 JSON
                     if isinstance(result, str):
-                        # 清理可能的markdown标记
-                        result = result.replace(
-                            '```json\n', '').replace('\n```', '').strip()
-                        print(f"---------------result------------\n: {result}")
+                        result = result.replace('```json\n', '').replace('\n```', '').strip()
                         parsed_result = json.loads(result)
 
-                        # 构建标准格式的结果
                         formatted_result = {
-                            "decision": parsed_result,  # 保持原始决策结构
+                            "decision": parsed_result,
                             "analyst_signals": {}
                         }
 
-                        # 处理智能体信号
                         if "agent_signals" in parsed_result:
                             formatted_result["analyst_signals"] = {
                                 signal["agent"]: {
@@ -142,32 +136,19 @@ class Backtester:
                                 for signal in parsed_result["agent_signals"]
                             }
 
-                        self.logger.info(
-                            f"解析后的决策: {formatted_result['decision']}")  # 添加日志
                         return formatted_result
-                    return result
                 except json.JSONDecodeError as e:
-                    # 如果无法解析为 JSON，记录错误并返回默认决策
-                    self.logger.warning(f"JSON解析错误: {str(e)}")
-                    self.logger.warning(f"原始返回结果: {result}")
-                    return {
-                        "decision": {"action": "hold", "quantity": 0},
-                        "analyst_signals": {}
-                    }
-
-            except Exception as e:
-                if "AFC is enabled" in str(e):
-                    self.logger.warning(f"触发 AFC 限制，等待 60 秒后重试...")
-                    time.sleep(60)
-                    self._api_call_count = 0
-                    self._api_window_start = time.time()
+                    self.logger.error(f"JSON 解析错误: {e}")
                     continue
+            except Exception as e:
+                self.logger.error(f"API 调用错误: {e}")
+                if attempt < max_retries - 1:
+                    self.logger.info(f"重试 {attempt + 1}/{max_retries}...")
+                    time.sleep(2 ** attempt)
+                else:
+                    raise
 
-                self.logger.warning(
-                    f"获取智能体决策失败 (尝试 {attempt + 1}/{max_retries}): {str(e)}")
-                if attempt == max_retries - 1:
-                    return {"decision": {"action": "hold", "quantity": 0}, "analyst_signals": {}}
-                time.sleep(2 ** attempt)
+        raise RuntimeError("无法获取智能体决策")
 
     def parse_decision_from_text(self, text):
         """从文本中解析交易决策"""

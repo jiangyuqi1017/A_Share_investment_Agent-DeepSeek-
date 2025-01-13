@@ -1,3 +1,9 @@
+import sys
+import os
+
+# 添加 src 目录到 sys.path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from datetime import datetime, timedelta
 import argparse
 from src.agents.valuation import valuation_agent
@@ -65,8 +71,7 @@ workflow.add_edge("portfolio_management_agent", END)
 
 app = workflow.compile()
 
-# Add this at the bottom of the file
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description='Run the hedge fund trading system')
     parser.add_argument('--ticker', type=str, required=True,
@@ -173,3 +178,6 @@ def get_historical_data(symbol: str) -> pd.DataFrame:
         except Exception as e:
             print(f"获取历史数据失败: {str(e)}")
             return pd.DataFrame()
+
+if __name__ == "__main__":
+    main()

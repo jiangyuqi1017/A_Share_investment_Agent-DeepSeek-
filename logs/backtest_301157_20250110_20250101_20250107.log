@@ -1,0 +1,130 @@
+回测开始时间: 2025-01-10 17:38:30
+股票代码: 301157
+回测区间: 2025-01-01 至 2025-01-07
+初始资金: 100,000.00
+
+----------------------------------------------------------------------------------------------------
+
+交易日期: 2025-01-01
+
+各智能体分析结果:
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 99%
+
+Fundamental Analysis:
+- 信号: neutral, 置信度: 50%
+
+Technical Analysis:
+- 信号: neutral, 置信度: 20%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Risk Management:
+- 信号: reduce, 置信度: 80%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2025-01-02
+
+各智能体分析结果:
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 99%
+
+Fundamental Analysis:
+- 信号: neutral, 置信度: 50%
+
+Technical Analysis:
+- 信号: bullish, 置信度: 53%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Risk Management:
+- 信号: buy, 置信度: 60%
+
+综合决策:
+行动: BUY
+数量: 12500
+
+交易日期: 2025-01-03
+
+各智能体分析结果:
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 99%
+
+Fundamental Analysis:
+- 信号: neutral, 置信度: 50%
+
+Technical Analysis:
+- 信号: neutral, 置信度: 1%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Risk Management:
+- 信号: reduce, 置信度: 80%
+
+综合决策:
+行动: SELL
+数量: 2150
+
+交易日期: 2025-01-06
+
+各智能体分析结果:
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 99%
+
+Fundamental Analysis:
+- 信号: neutral, 置信度: 50%
+
+Technical Analysis:
+- 信号: bullish, 置信度: 20%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Risk Management:
+- 信号: reduce, 置信度: 80%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+交易日期: 2025-01-07
+
+各智能体分析结果:
+
+Valuation Analysis:
+- 信号: bearish, 置信度: 99%
+
+Fundamental Analysis:
+- 信号: neutral, 置信度: 50%
+
+Technical Analysis:
+- 信号: neutral, 置信度: 4%
+
+Sentiment Analysis:
+- 信号: bullish, 置信度: 80%
+
+Risk Management:
+- 信号: reduce, 置信度: 80%
+
+综合决策:
+行动: HOLD
+数量: 0
+
+==================================================
+回测结果汇总
+==================================================
+初始资金: 100,000.00
+最终总值: 87,422.50
+总收益率: -12.58%
+夏普比率: -7.10
+最大回撤: -12.58%

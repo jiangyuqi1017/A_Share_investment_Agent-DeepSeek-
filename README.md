@@ -66,10 +66,19 @@ poetry install
 # Create .env file for your API keys
 cp .env.example .env
 
-# Get your Gemini API key from https://aistudio.google.com/
-export GEMINI_API_KEY='your-gemini-api-key-here'
-export GEMINI_MODEL='gemini-1.5-flash'
+# Get your DeepSeek API key from https://platform.deepseek.com/
+export DEEP_SEEK_API_KEY='your-deepseek-api-key-here'
+export DEEP_SEEK_MODEL='deepseek-chat'
 ```
+
+## DeepSeek API 申请指南
+
+1. 访问 [DeepSeek 平台](https://platform.deepseek.com/)
+2. 注册或登录您的账户
+3. 进入 API Keys 页面
+4. 点击 "Create new API key" 按钮
+5. 复制生成的 API key
+6. 将 API key 填入 .env 文件中的 DEEP_SEEK_API_KEY 变量
 
 ## Usage
 
@@ -505,89 +514,4 @@ Market Data Analyst → [Technical/Fundamentals/Sentiment/Valuation Analyst] →
 
 3. **风险控制**
    - 强制性风险限制
-   - 最大持仓限制
-   - 交易规模限制
-   - 止损和止盈设置
-
-### 系统特点
-
-1. **模块化设计**
-
-   - 每个代理都是独立的模块
-   - 易于维护和升级
-   - 可以单独测试和优化
-
-2. **可扩展性**
-
-   - 可以轻松添加新的分析师
-   - 支持添加新的数据源
-   - 可以扩展决策策略
-
-3. **风险管理**
-
-   - 多层次的风险控制
-   - 实时风险评估
-   - 自动止损机制
-
-4. **智能决策**
-   - 基于多维度分析
-   - 考虑多个市场因素
-   - 动态调整策略
-
-### 未来展望
-
-1. **数据源扩展**
-
-   - 添加更多 A 股数据源
-   - 接入更多财经数据平台
-   - 增加社交媒体情绪数据
-   - 扩展到港股、美股市场
-
-2. **功能增强**
-
-   - 添加更多技术指标
-   - 实现自动化回测
-   - 支持多股票组合管理
-
-3. **性能优化**
-   - 提高数据处理效率
-   - 优化决策算法
-   - 增加并行处理能力
-
-### 情感分析功能
-
-情感分析代理（Sentiment Agent）是系统中的关键组件之一，负责分析市场新闻和舆论对股票的潜在影响。
-
-#### 功能特点
-
-1. **新闻数据采集**
-
-   - 自动抓取最新的股票相关新闻
-   - 支持多个新闻源
-   - 实时更新新闻数据
-
-2. **情感分析处理**
-
-   - 使用先进的 AI 模型分析新闻情感
-   - 情感分数范围：-1（极其消极）到 1（极其积极）
-   - 考虑新闻的重要性和时效性
-
-3. **交易信号生成**
-   - 基于情感分析结果生成交易信号
-   - 包含信号类型（看涨/看跌）
-   - 提供置信度评估
-   - 附带详细的分析理由
-
-#### 情感分数说明
-
-- **1.0**: 极其积极（重大利好消息、超预期业绩、行业政策支持）
-- **0.5 到 0.9**: 积极（业绩增长、新项目落地、获得订单）
-- **0.1 到 0.4**: 轻微积极（小额合同签订、日常经营正常）
-- **0.0**: 中性（日常公告、人事变动、无重大影响的新闻）
-- **-0.1 到 -0.4**: 轻微消极（小额诉讼、非核心业务亏损）
-- **-0.5 到 -0.9**: 消极（业绩下滑、重要客户流失、行业政策收紧）
-- **-1.0**: 极其消极（重大违规、核心业务严重亏损、被监管处罚）
-
-# 结果展示
-
-![image](src/data/img/image.png)
+   -
