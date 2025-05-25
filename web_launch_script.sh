@@ -196,8 +196,8 @@ print_info "按 Ctrl+C 停止服务"
 echo ""
 
 # Try different Python commands
-if command -v python3 &> /dev/null; then
-    python3 -m streamlit run web_interface.py
+if command -v python &> /dev/null; then
+    python -m streamlit run web_interface.py
 elif command -v python &> /dev/null; then
     python -m streamlit run web_interface.py
 else
