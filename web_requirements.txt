@@ -1,0 +1,27 @@
+# Web Interface Dependencies
+# Add these to your existing requirements or install separately
+
+# Core web framework
+streamlit>=1.28.0
+
+# Plotting and visualization
+plotly>=5.15.0
+
+# Data handling (if not already installed)
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Optional: Better performance for large datasets
+streamlit-aggrid>=0.3.4
+
+# Optional: Additional components
+streamlit-option-menu>=0.3.6
+streamlit-elements>=0.1.0
+
+# Make sure your existing dependencies are also available:
+# akshare
+# openai
+# langchain-core
+# langgraph
+# python-dotenv
+# backoff
