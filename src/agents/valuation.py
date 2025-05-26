@@ -45,6 +45,7 @@ def valuation_agent(state: AgentState):
     )
 
     # Calculate combined valuation gap (average of both methods)
+    signal = 'invalid'
     if not isinstance(market_cap, (int, float)) or market_cap <= 0:
         reasoning["error"] = "Invalid market capitalization - must be a positive number"
         signal = 'invalid'
